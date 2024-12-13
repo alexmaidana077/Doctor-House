@@ -1,57 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Paciente</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../Estilos/log.png">
-    <link rel="stylesheet" href="../Estilos/estiloregistros.css">
-</head>
-<body>
-    <div class="contenedor">
-        <header>
-            <div class="logo"></div>
-            <nav>
-                <ul>
-                    <li><a href="inicio.html">Inicio</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Turnos</a></li>
-                    <li><a href="#">Usuario</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <form action="../../Modelo/registros/registro.php" method="POST"  onsubmit="return validarFormulario()" class="register-form">
-                <h1>Registro Paciente</h1>
-                <div class="form-group">
-                    <label for="nombre">Nombre/s del paciente</label>
-                    <input type="text" name="nombre" id="nombre" required class="form-control" placeholder="Ingrese su Nombre">
-
-                    <label for="apellido">Apellido/s del paciente</label>
-                    <input type="text" name="apellido" id="apellido" required class="form-control"placeholder="Ingrese su Apellido">
-
-                    <label for="dni">N° DNI</label>
-                    <input type="number" name="dni" id="dni" required class="form-control"placeholder="Ingrese su DNI">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required class="form-control"placeholder="Ingrese su Email">
-
-                    <label for="telefono">Teléfono</label>
-                    <input type="number" name="telefono" id="telefono" required class="form-control"placeholder="Ingrese su Telefono">
-
-                    <label for="contrasena">Contraseña</label>
-                    <input type="password" id="confirmarContra" name="confirmarContra" required class="form-control" placeholder="Confirme su contraseña">
-
-                </div>
-                <button type="submit">Guardar</button>
-                <br>
-                <br>
-                <p class="volver">Ya tenes una cuenta? <a href="login.html">Inicia sesion</a></p>
-
-            </form>
-        </main>
-    </div>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro Paciente</title>
+        <link rel="stylesheet" href="../Estilos/estiloregistros.css">
+    </head>
+    <body>
+            <header>
+                <div class="logo"><img src="../Estilos/log.png" alt=""></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="registro_med.html">Especialidades</a></li>
+                        <li><a href="#">Turnos</a></li>
+                        <li><a href="#">Usuario</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <form action="../../Modelo/registros/registro.php" method="POST" class="register-form">
+                    <h1>Registro Paciente</h1>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre/s del paciente:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apellido">Apellido/s del paciente:</label>
+                            <input type="text" id="apellido" name="apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" id="telefono" name="telefono" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dni">N° DNI:</label>
+                            <input type="text" id="dni" name="dni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena">Contraseña:</label>
+                            <input type="password" id="contra" name="contra" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmarContra">Confirmar Contraseña:</label>
+                            <input type="password" id="confirmarContra" name="confirmarContra" required>
+                        </div>
+                    </div>
+                    <button type="submit">Guardar</button>
+                </form>
+            </main>
+    </body>
+    </html>
