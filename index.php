@@ -19,7 +19,7 @@ session_start();
 </head>
 <body>
 <header class="encabezado">
-  <img src="" alt="">
+  <img src="Vistas/Estilos/log.png" alt="">
   <ul>
   <?php
     if (!isset($_SESSION['email'])) {
@@ -29,12 +29,11 @@ session_start();
         echo '<a href="Modelo/Models/logout.php">Cerrar Sesión</a>';
         // Mostrar enlaces según el rol
         if ($_SESSION['rol'] === 'administrador') {
-            echo '<a href="Vistas/Paginas/vista.php">Productos</a>';
             echo '<a href="Vistas/Paginas/registro_med.html">Registrar Médico</a>';
         } elseif ($_SESSION['rol'] === 'medicos') {
-            echo '<a href="Vistas/Paginas/consultas.html">Turnos</a>';
+            echo '<a href="Vistas/Paginas/pacientes.php">Turnos</a>';
         } else {
-            echo '<a href="Vistas/Paginas/inicio.html">Inicio</a>';
+            echo '<a href="Vistas/Paginas/turno.html">Turno</a>';
         }
     }
     ?>
@@ -54,7 +53,7 @@ session_start();
     </nav>
   <div class="imagen">
       <div class="marco">
-        <img src="" alt="Logo">
+        <img src="Vistas/Estilos/log.png" alt="Logo">
       </div>
     </div>
   </div>
@@ -63,14 +62,6 @@ session_start();
   </main>
 
   <footer>
-    <div class="footer-container">
-      <a href="" class="footer-item">
-        <img src="" alt="Foto 2">
-      </a>
-      <a href="" class="footer-item">
-        <img src="" alt="Foto 3">
-      </a>
-    </div>
   </footer>
 
   <!-- Bootstrap JavaScript Libraries -->

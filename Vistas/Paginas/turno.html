@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+  <title>Turnos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- Paginas de Estilos     -->
+    <link rel="stylesheet" href="../Estilos/styles.css">
+
+</head>
+<body>
+    <main>
+        <div class="contenedor">
+        <div class="fondo">
+        <form action="../../Modelo/Models/turno.php" method="post" class="form">
+            <h1 style="text-align: center" class="titulo">Turno</h1>
+            <div class="mb-3">
+            <label for="nombre">Tipo de Documento</label>
+            <select name="tipo" id="tipo" required class="form-control"placeholder="Ingrese su Email">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Otro">Otro</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="nombreuser">N° de Documento:</label>
+            <input type="number" name="dni" id="dni" required class="form-control" placeholder="Ingrese su DNI">
+            </div>
+            <div class="mb-3">
+            <label for="especialidad">Especialidades:</label>
+            <select name="especialidad" id="especialidad" required class="form-control">
+            <option value="">Seleccione una especialidad</option>
+                <option value="clinico">Clinico</option>
+                <option value="ginecologia">Ginecologia</option>
+                <option value="pediatra">Pediatra</option>
+                <option value="dermatologia">Dermatologia</option>
+                <option value="neurologia">Neurologia</option>
+            </select>
+            </div>
+            <div class="mb-3">
+                <label for="medico">Médico:</label>
+                <select name="medico_id" id="medico" required class="form-control">
+                <option value="">Seleccione un médico</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="pago">Metodo de Pago</label>
+                <select name="pago" id="pago" required class="form-control">
+                <option value="">Seleccione un Metodo de Pago</option>
+                    <option value="obra social">Obra social</option>
+                    <option value="prepago">Prepago</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="fecha">Fecha:</label>
+                <input type="date" name="fecha" id="fecha" required class="form-control">
+            </div>            
+            <div class="mb-3">
+                <label for="horario">Horario:</label>
+                <select id="horario" name="horario" required class="form-control">
+                    <option value="">Seleccione un horario</option>
+                </select>
+            </div>            
+            <input type="submit" value="Enviar" class="btn">
+            </form> 
+        </div>
+    </div>
+</main>
+
+
+    <script>
+    document.getElementById('especialidad').addEventListener('change', function () {
+        const especialidad = this.value;
+        const medicoSelect = document.getElementById('medico');
+    
+        // Limpiar las opciones actuales
+        medicoSelect.innerHTML = '<option value="">Cargando médicos...</option>';
+    
+        if (especialidad) {
+            fetch(`../../Modelo/Models/obtener_medicos.php?especialidad=${especialidad}`)
+                .then(response => response.json())
+                .then(data => {
+                    medicoSelect.innerHTML = '<option value="">Seleccione un médico</option>';
+                    data.forEach(medico => {
+                        const option = document.createElement('option');
+                        option.value = medico.dni;
+                        option.textContent = `${medico.nombre} ${medico.apellido}`;
+                        medicoSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    medicoSelect.innerHTML = '<option value="">Error al cargar médicos</option>';
+                    console.error('Error:', error);
+                });
+        } else {
+            medicoSelect.innerHTML = '<option value="">Seleccione una especialidad primero</option>';
+        }
+    });
+            document.getElementById('fecha').addEventListener('change', cargarHorarios);
+            document.getElementById('medico').addEventListener('change', cargarHorarios);
+
+            function cargarHorarios() {
+                const fecha = document.getElementById('fecha').value;
+                const medico_id = document.getElementById('medico').value;
+                const horarioSelect = document.getElementById('horario');
+
+            if (fecha && medico_id) {
+                horarioSelect.innerHTML = '<option value="">Cargando horarios...</option>';
+
+             fetch(`../../Modelo/Models/horario.php?medico_id=${medico_id}&fecha=${fecha}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener horarios');
+                    }
+                    return response.json();
+                })
+                    .then(data => {
+                    horarioSelect.innerHTML = '<option value="">Seleccione un horario</option>';
+                    data.forEach(horario => {
+                        const option = document.createElement('option');
+                        option.value = horario;
+                        option.textContent = horario;
+                        horarioSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    horarioSelect.innerHTML = '<option value="">Error al cargar horarios</option>';
+                });
+            }else{
+                horarioSelect.innerHTML = '<option value="">Seleccione médico y fecha primero</option>';
+            }
+        }
+    </script>    
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
