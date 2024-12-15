@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Información del Paciente</title>
+  <title>Información del Médico</title>
   <link rel="shortcut icon" type="image/x-icon" href="../Estilos/log.png">
   <link rel="stylesheet" href="../Estilos/info.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">
       <img src="../Estilos/log.png" alt="Logo">
@@ -15,39 +16,44 @@
     <nav>
       <ul>
         <li><a href="login.html">Inicio</a></li>
-        <li><a href="info_medico.html">Especialidades</a></li>
+        <li><a href="#">Especialidades</a></li>
         <li><a href="#">Turnos</a></li>
         <li><a href="#">Usuario</a></li>
       </ul>
     </nav>
   </header>
+
+  <!-- Main Section -->
   <main>
     <div class="container">
-      <h1>Información del Paciente</h1>
-      <form id="userForm" action="update_user.php" method="POST">
+      <h1>Información del médico</h1>
+      <form id="medicoForm" action="update_medico.php" method="POST">
         <div class="info">
           <!-- Primera columna -->
           <div class="column">
             <label><strong>Nombre/s:</strong></label>
-            <input type="text" name="nombre" id="nombre" value="Alex Agustin" disabled>
-            
+            <input type="text" name="nombre" id="nombre" value="Matias" disabled>
+
             <label><strong>Apellido/s:</strong></label>
-            <input type="text" name="apellido" id="apellido" value="Maidana" disabled>
-            
+            <input type="text" name="apellido" id="apellido" value="Puegher" disabled>
+
             <label><strong>N° DNI:</strong></label>
             <input type="text" name="dni" id="dni" value="46.345.876" disabled>
+
+            <label><strong>Email:</strong></label>
+            <input type="email" name="email" id="email" value="matiaspuegher@gmail.com" disabled>
           </div>
 
           <!-- Segunda columna -->
           <div class="column">
-            <label><strong>Email:</strong></label>
-            <input type="email" name="email" id="email" value="alexmaidana@gmail.com" disabled>
-            
             <label><strong>Teléfono:</strong></label>
-            <input type="number" name="telefono" id="telefono" value="01165287345" disabled>
-            
+            <input type="number" name="telefono" id="telefono" value="01179123575" disabled>
+
+            <label><strong>Especialidades:</strong></label>
+            <input type="text" name="especialidad" id="especialidad" value="Cardiología" disabled>
+
             <label><strong>Contraseña:</strong></label>
-            <input type="password" name="password" id="password" value="mate123" disabled>
+            <input type="password" name="password" id="password" value="mati123" disabled>
           </div>
         </div>
 
@@ -59,11 +65,11 @@
     </div>
   </main>
 
+  <!-- JavaScript -->
   <script>
-    // Script para habilitar la edición
     const btnModificar = document.getElementById('btnModificar');
     const btnGuardar = document.getElementById('btnGuardar');
-    const inputs = document.querySelectorAll('#userForm input');
+    const inputs = document.querySelectorAll('#medicoForm input');
 
     btnModificar.addEventListener('click', () => {
       inputs.forEach(input => input.disabled = false); // Habilita los campos

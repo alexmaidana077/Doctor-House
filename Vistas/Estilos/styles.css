@@ -15,12 +15,12 @@
 }
 
 .encabezado:hover .logoo{
-  color: #4dead5;
+  color: #58a6f1;
   transition: 0.1s;
 }
 
 .encabezado{
-  background-color: #62aee9;
+  background-color: #58a6f1;
   width: 100%;
   margin-right: 15px;
   display: flex;
@@ -42,7 +42,7 @@
 }
 
 .encabezado ul a:hover{
-  background-color: #4dead5;
+  background-color: #58a6f1;
   border-radius: 20px;
   margin: 10px;
   margin-right: 30px;
@@ -84,7 +84,7 @@
 
 .contenido h3{
   font-size: 35px;
-  color: #3498db;
+  color: #58a6f1;
   opacity: 0;
   animation: titulo 1s ease forwards;
   animation-delay: 1s;
@@ -110,8 +110,8 @@
   width: 98%;
   height: 98%;
   right: -10%;
-  background-color:#4dd5ea;
-  border: 20px solid #4dacea;
+  background-color:#58a6f1;
+  border: 20px solid #58a6f1;
 }
 
 .imagen .marco img{
@@ -132,7 +132,7 @@
 }
 
 footer {
-  background-color: #4da6ea;
+  background-color: #58a6f1;
   color: white;
   margin-top: 15px;
   padding: 20px 0;
@@ -221,7 +221,7 @@ body {
 }
 
 header {
-  background-color: #3498db;
+  background-color: #58a6f1;
   color: white;
   padding: 10px 15px;
 }
@@ -307,7 +307,7 @@ nav ul li a {
   padding: 12px;
   border-radius: 25px;
   border: none;
-  background-color: #007bff;
+  background-color: #58a6f1;
   color: #ffffff;
   font-weight: bold;
   cursor: pointer;

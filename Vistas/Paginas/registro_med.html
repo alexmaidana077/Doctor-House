@@ -28,30 +28,24 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="dni">DNI:</label>
-                    <input type="number" id="dni" name="dni" required placeholder="Ingrese su DNI">
+                    <label for="nombre">Nombre/s del medico:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su Nombre">
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su Nombre">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="number" id="telefono" name="telefono" required placeholder="Ingrese su Telefono" >
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="apellido">Apellido:</label>
+                    <label for="apellido">Apellido/s del medico:</label>
                     <input type="text" id="apellido" name="apellido" required placeholder="Ingrese su Apellido">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Ingrese su Email">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
                     <label for="especialidad">Especialidad:</label>
-                    <select id="especialidad" name="especialidad" required>
+                    <select id="especialidad" name="especialidad" required placeholder="Seleccione la especialidad">
+                        <option value="Seleccione la especialidad">Seleccione la especialidad</option>
                         <option value="clinico">Clínico</option>
                         <option value="ginecologia">Ginecología</option>
                         <option value="pediatra">Pediatra</option>
@@ -63,9 +57,21 @@
 
             <div class="form-row">
                 <div class="form-group">
+                    <label for="dni">Nº DNI:</label>
+                    <input type="number" id="dni" name="dni" required placeholder="Ingrese su DNI">
+                </div>
+                <div class="form-group">
                     <label for="contra">Contraseña:</label>
                     <input type="password" id="contra" name="contra" required placeholder="Ingrese una contraseña">
                 </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Ingrese su Email">
+                </div>
+                
                 <div class="form-group">
                     <label for="confirmarContra">Confirmar Contraseña:</label>
                     <input type="password" id="confirmarContra" name="confirmarContra" required placeholder="Confirme su contraseña">
