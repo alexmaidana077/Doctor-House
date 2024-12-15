@@ -106,6 +106,26 @@ $result = $stmt_turnos->get_result();
 
         <a href="../../index.php" class="btn btn-secondary">Volver al inicio</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const fechaInput = document.getElementById('fecha');
+        const hoy = new Date().toISOString().split('T')[0]; // Obtén la fecha actual en formato YYYY-MM-DD
+        fechaInput.min = hoy; // Establece la fecha mínima
+    });
+
+    // Validación adicional en caso de que el usuario intente manipular el campo
+    document.getElementById('fecha').addEventListener('change', function () {
+        const fechaSeleccionada = new Date(this.value);
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0); // Asegúrate de comparar solo fechas (sin horas)
+
+        if (fechaSeleccionada < hoy) {
+            alert('No puedes seleccionar una fecha pasada.');
+            this.value = ''; // Limpia el valor del campo
+        }
+    });
+    </script>
 </body>
 
 </html>
