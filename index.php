@@ -31,9 +31,12 @@ session_start();
         if ($_SESSION['rol'] === 'administrador') {
             echo '<a href="Vistas/Paginas/registro_med.html">Registrar Médico</a>';
         } elseif ($_SESSION['rol'] === 'medicos') {
-            echo '<a href="Vistas/Paginas/pacientes.php">Turnos</a>';
+            echo '<a href="Vistas/Paginas/pacientes.php">Mis Pacientes</a>';
+            echo '<a href="Vistas/Paginas/info_medico.php">Perfil</a>';
         } else {
-            echo '<a href="Vistas/Paginas/turno.html">Turno</a>';
+            echo '<a href="Vistas/Paginas/turno.html">Sacar Turno</a>';
+            echo '<a href="Vistas/Paginas/info_paciente.html">Mis Turnos</a>';
+            echo '<a href="Vistas/Paginas/info_paciente.php">Perfil</a>';
         }
     }
     ?>
